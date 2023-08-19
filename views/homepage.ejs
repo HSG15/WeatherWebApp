@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    
+    <h1 id="current-time"></h1>
+
+    <form method="post">
+        <div class="search">
+            <input class="input-text" type="text" name="cityName" placeholder="Search city..." autocomplete="off">
+            <button class="circular-button" type="submit"> <img src="https://weather-web-app-by-pruthviraj.netlify.app/images/search.png" alt="search image" style="width: 20px;"> </button>
+        </div>
+    </form>
+
+    <% if (typeof error !== 'undefined') { %>
+    <div class="error-message">
+        <p><%= error %></p>
+    </div>
+    <% } %>
+
+    <script>
+        // Function to update current time
+        function updateCurrentTime() {
+            const currentTimeElement = document.getElementById("current-time");
+            const newTime = new Date().toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true
+            });
+            currentTimeElement.textContent = newTime;
+        }
+
+        // Initial call to update time
+        updateCurrentTime();
+
+        // Update current time every second
+        setInterval(updateCurrentTime, 1000);
+    </script>
+
+</body>
+</html>

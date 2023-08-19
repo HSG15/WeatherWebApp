@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- montserrat font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=McLaren&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/825bed306c.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- css link -->
+    <link rel="stylesheet" href="/styles.css">
+    <title>Weather App</title>
+</head>
+<body>
+
+    <form method="post">
+        <div class="search2">
+            <input class="input-text2" type="text" name="cityName" placeholder="Search city..." autocomplete="off">
+            <button class="circular-button2" type="submit"> <img src="https://weather-web-app-by-pruthviraj.netlify.app/images/search.png" alt="" style="width: 20px;"> </button>
+        </div>
+    </form>
+    
+    <div class="container">
+        <div class="leftItems">
+            <h2> <i class="fa-sharp fa-solid fa-location-dot"></i> <%= city %> </h2>
+            <h2><%=currDate%></h2>
+            <h2><%=currDay%></h2>
+            <h1> <img class="small-image" src="<%= tempImg %>" alt="image"> <%= Math.round(currTemp)%><span>&#176; </h1>
+            <h2> <i class="fa-solid fa-temperature-half"></i> Feels like <%=Math.round(feelsLike)%><span>&#176; </h2>
+            
+        </div>
+        <div>
+            <img class="img" src="<%= image %>" alt="weather image">
+            <h3><h2><%= condition  %> </h2></h3>
+        </div>
+        <div class="rightItems">
+            
+            <h2> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-sunrise" viewBox="0 0 16 16">
+                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708l1.5-1.5zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM8 7a3 3 0 0 1 2.599 4.5H5.4A3 3 0 0 1 8 7zm3.71 4.5a4 4 0 1 0-7.418 0H.499a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+              </svg>Sunrise : <%= sunRise %> </h2>
+            <h2> <iconify-icon icon="bi:sunset" width="40" height="40"></iconify-icon> Sunset : <%=sunSet%></h2>
+            <h2> <iconify-icon icon="material-symbols:humidity-mid" width="40" height="40"></iconify-icon> Humidity : <%= humiDity %> % </h2>
+            <h2> <i class="fa-regular fa-eye"></i> Visibility : <%=visiBility%> km</h2>
+            <h2> <i class="fa-solid fa-wind"></i> Wind speed : <%= Math.round(windSpeed) %> km/h</h2>
+            
+            
+        </div>
+    </div>
+
+    <%- include('footer'); -%>
+    
+</body>
+</html>
